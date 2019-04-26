@@ -20,6 +20,7 @@ class HomeTableViewController: UITableViewController {
         TwitterAPICaller.client?.logout()
         // self.dimiss makes the screen dismiss itself (disapear)
         self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
     // MARK: - Table view data source
 
