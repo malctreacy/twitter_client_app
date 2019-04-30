@@ -22,6 +22,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     func loadTweets(){
+        numberOfTweets = 20
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count":numberOfTweets]
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets:[NSDictionary]) in
@@ -51,7 +52,6 @@ class HomeTableViewController: UITableViewController {
         cell.userNameLabel.text = user["name"] as? String
         // Pull the tweet from the returned json / tweet array
         cell.tweetContent.text = tweetArray[indexPath.row]["text"] as? String
-        
         if let imageData = data {
             cell.profileImageView.image = UIImage(data:imageData)
         }
